@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obchodní podmínky společnosti </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e7d4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            height: 90vh;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .terms {
+            width: 100%;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            height: 70vh;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #0067b8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover:enabled {
+            background-color: #005da6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Obchodní podmínky</h1>
+        <div class="terms">
+            <h2>1. Úvodní ustanovení</h2>
+            <p>
+                Tyto obchodní podmínky (dále jen "Podmínky") upravují práva a povinnosti mezi společností PRVNÍ CHODSKÁ s.r.o., se sídlem na adrese Sadová 636, 344 01 Domažlice, IČ: 14704013, zapsanou v obchodním rejstříku vedeném Městským soudem v Praze, oddíl C, vložka 98547 (dále jen "Poskytovatel"), a uživateli služeb poskytovaných Poskytovatelem (dále jen "Uživatel").
+            </p>
+            <h2>2. Definice pojmů</h2>
+            <p>
+                Pro účely těchto Podmínek mají následující pojmy tento význam:
+            </p>
+            <ul>
+                <li><strong>Služby</strong>: veškeré produkty a služby nabízené Poskytovatelem, včetně, ale nejen, softwarových aplikací, webových stránek, zákaznické podpory a dalších souvisejících služeb.</li>
+                <li><strong>Uživatel</strong>: fyzická nebo právnická osoba, která využívá Služby Poskytovatele.</li>
+                <li><strong>Smlouva</strong>: právní vztah mezi Poskytovatelem a Uživatelem založený na akceptaci těchto Podmínek.</li>
+            </ul>
+            <h2>3. Uzavření smlouvy</h2>
+            <p>
+                Smlouva mezi Poskytovatelem a Uživatelem je uzavřena okamžikem, kdy Uživatel vyjádří souhlas s těmito Podmínkami, a to buď registrací, objednáním Služeb, nebo jiným způsobem, kterým dává najevo svůj souhlas s těmito Podmínkami.
+            </p>
+            <h2>4. Práva a povinnosti Poskytovatele</h2>
+            <p>
+                Poskytovatel se zavazuje poskytovat Služby v souladu s těmito Podmínkami a platnými právními předpisy. Poskytovatel si vyhrazuje právo kdykoli změnit nebo ukončit poskytování Služeb, a to i bez předchozího upozornění.
+            </p>
+            <h2>5. Práva a povinnosti Uživatele</h2>
+            <p>
+                Uživatel je povinen používat Služby v souladu s těmito Podmínkami a platnými právními předpisy. Uživatel nesmí využívat Služby k nezákonným účelům nebo způsobem, který by mohl poškodit Poskytovatele nebo třetí osoby.
+            </p>
+            <h2>6. Ochrana osobních údajů</h2>
+            <p>
+                Poskytovatel zpracovává osobní údaje Uživatele v souladu s platnými právními předpisy a Zásadami ochrany osobních údajů, které jsou nedílnou součástí těchto Podmínek.
+            </p>
+            <h2>7. Odpovědnost za škodu</h2>
+            <p>
+                Poskytovatel neodpovídá za škody způsobené Uživateli v souvislosti s používáním Služeb, pokud tyto škody nebyly způsobeny úmyslně nebo hrubou nedbalostí ze strany Poskytovatele.
+            </p>
+            <h2>8. Závěrečná ustanovení</h2>
+            <p>
+                V případě, že některé ustanovení těchto Podmínek bude shledáno neplatným nebo nevynutitelným, nebude tím dotčena platnost a vymahatelnost ostatních ustanovení. Neplatné ustanovení bude nahrazeno takovým, které co nejvíce odpovídá původnímu záměru Poskytovatele a těchto Podmínek.
+            </p>
+            <p>
+                Tyto Podmínky se řídí právním řádem České republiky. Veškeré spory vzniklé na základě těchto Podmínek nebo v souvislosti s nimi budou řešeny místně a věcně příslušnými soudy České republiky.
+            </p>
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="agree-checkbox" />
+            <label for="agree-checkbox">Obeznámil/a jsem se s podmínkami</label>
+        </div>
+
+        <button id="agree-button" disabled>Souhlasím</button>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('agree-checkbox');
+        const button = document.getElementById('agree-button');
+
+        // Povolit tlačítko po zaškrtnutí checkboxu
+        checkbox.addEventListener('change', () => {
+            button.disabled = !checkbox.checked;
+        });
+
+        // Akce po kliknutí na tlačítko "Souhlasím"
+        button.addEventListener('click', () => {
+            alert("Děkujeme za souhlas s podmínkami!");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

